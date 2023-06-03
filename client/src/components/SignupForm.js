@@ -28,9 +28,10 @@ const [addUser, {error}] = useMutation(ADD_USER)
       event.preventDefault();
       event.stopPropagation();
     }
+    console.log(userFormData)
 
     try {
-      const response = await addUser(userFormData);
+      const response = await addUser({...userFormData});
 
       if (!response.ok) {
         throw new Error('something went wrong!');
